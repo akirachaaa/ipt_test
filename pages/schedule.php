@@ -18,7 +18,7 @@ require_once '../php/init.php';
     <header class="navbar">
         <div class="logo"><img src="../img/logo.png" alt=""></div>
         <nav>
-        <a href="../index.html" title="Home" class="_home"><i class="fa-regular fa-bell"></i></a>
+        <a href="../index.php" title="Home" class="_home"><i class="fa-regular fa-bell"></i></a>
         <a href="#" title="Schedules" class="_sched"><i class="fa-solid fa-calendar-days"></i></a>
         <a href="#" title="History" class="_out"><i class="fa-regular fa-clock"></i></a>
         </nav>
@@ -31,17 +31,20 @@ require_once '../php/init.php';
             <div class="sched-list">
 
                 <!-- ITEM -->
-                <div class="sched-item">
+                <?php $view = new view();
+                    $view->viewSched();  ?>
+                <!-- <div class="sched-item">
                     <div class="sched-time"><h1>08:49 PM</h1></div>
                     <div class="sched-option">
                         <button id="show-edit">Edit</button>
                         <button id="remove">Remove</button>
                     </div>
-                </div>
-
+                </div> -->
+            
             </div>
         </main>
     </div>
+    
 
     <!-- SCHED POPUP -->
     <div class="edit-popup">
