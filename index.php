@@ -1,3 +1,12 @@
+<?php
+require_once './php/init.php';
+
+$con = new config();
+$con->con();
+
+// pakilagay na lang sa loob ng xampp folder --> htdocs para ma-try niyo rin tnx
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +22,7 @@
     <div class="logo"><img src="img/logo.png" alt=""></div>
     <nav>
       <a href="#" title="Home" class="_home"><i class="fa-solid fa-bell"></i></a>
-      <a href="pages/schedule.html" title="Schedules" class="_sched"><i class="fa-regular fa-calendar"></i></a>
+      <a href="pages/schedule.php" title="Schedules" class="_sched"><i class="fa-regular fa-calendar"></i></a>
       <a href="#" title="History" class="_out"><i class="fa-regular fa-clock"></i></a>
     </nav>
   </header>
@@ -80,14 +89,15 @@
   <div class="popup">
     <div class="close-btn">✖</div>
     <div class="form">
+    <?php addSchedMsg(); ?>
       <h2>Add Schedule</h2>
-      <form action="">
+      <form method="POST">
         <div class="form-element">
           <label for="time">Set Time:</label>
-          <input type="time" id="time" name="time" step="60" value="00:00">
+          <input type="time" id="time" name="add_time" step="60" value="00:00">
         </div>
         <div class="form-element">
-          <input type="submit" value="ADD">
+          <input type="submit" value="ADD" name="submit">
         </div>
       </form>
     </div>
