@@ -91,7 +91,7 @@ $con->con();
     <div class="form">
     <?php addSchedMsg(); ?>
       <h2>Add Schedule</h2>
-      <form method="POST">
+      <form action="./pages/schedule.php" method="POST">
         <div class="form-element">
           <label for="time">Set Time:</label>
           <input type="time" id="time" name="add_time" step="60" value="00:00">

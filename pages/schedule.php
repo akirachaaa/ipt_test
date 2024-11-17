@@ -31,16 +31,11 @@ require_once '../php/init.php';
             <div class="sched-list">
 
                 <!-- ITEM -->
-                <?php $view = new view();
-                    $view->viewSched();  ?>
-                <!-- <div class="sched-item">
-                    <div class="sched-time"><h1>08:49 PM</h1></div>
-                    <div class="sched-option">
-                        <button id="show-edit">Edit</button>
-                        <button id="remove">Remove</button>
-                    </div>
-                </div> -->
-            
+                <?php 
+                    $view = new view();
+                    $view->viewSched(); 
+                    delSchedMsg();
+                    ?>    
             </div>
         </main>
     </div>
@@ -51,13 +46,13 @@ require_once '../php/init.php';
         <div class="close-btn">✖</div>
         <div class="form">
         <h2>Edit Schedule</h2>
-        <form action="">
+        <form action="" method="POST">
             <div class="form-element">
             <label for="time-edit">Set New Time:</label>
             <input type="time" id="time-edit" name="time" step="60" value="00:00">
             </div>
             <div class="form-element">
-            <input type="submit" value="Edit">
+            <input type="submit" value="Edit" name="edit">
             </div>
         </form>
         </div>
@@ -74,7 +69,7 @@ require_once '../php/init.php';
         <div class="form">
         <?php addSchedMsg(); ?>
         <h2>Add Schedule</h2>
-        <form method="POST">
+        <form action="" method="POST">
             <div class="form-element">
             <label for="time">Set Time:</label>
             <input type="time" id="time" name="add_time" step="60" value="00:00">

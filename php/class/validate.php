@@ -16,8 +16,10 @@ class validate extends config {
 		$insert = new insertSched($schedule_time);
 			if($insert->addSched()) {
 				echo 'meow inserted!!!!';
+                return true;
 			} else {
 				echo 'no meow inserted :((';
+                return false;
 			}
 	}
 }
