@@ -18,7 +18,7 @@ class view extends config {
                         <h1>'.$data['schedule_time'].'</h1>
                     </div>
                     <div class="sched-option">
-                        <button id="show-edit" type="submit" name="submit">Edit</button>
+                        <button class="show-edit" type="submit" name="submit">Edit</button>
                         <button type="submit" name="delete">
                             <a href="?delSched='.$schedule_id.'">Remove</a>
                         </button>
