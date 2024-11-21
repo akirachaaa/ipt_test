@@ -16,11 +16,11 @@ require_once '../php/init.php';
 <body>
     <!-- NAVIGATION -->
     <header class="navbar">
-        <div class="logo"><img src="../img/logo.png" alt=""></div>
+        <div class="logo"><a href="../index.php"><img src="../img/logo.png" alt=""></a></div>
         <nav>
         <a href="../index.php" title="Home" class="_home"><i class="fa-regular fa-bell"></i></a>
         <a href="#" title="Schedules" class="_sched"><i class="fa-solid fa-calendar-days"></i></a>
-        <a href="#" title="History" class="_out"><i class="fa-regular fa-clock"></i></a>
+        <a href="history.html" title="History" class="_out"><i class="fa-regular fa-clock"></i></a>
         </nav>
     </header>
 
@@ -35,24 +35,24 @@ require_once '../php/init.php';
                     $view = new view();
                     $view->viewSched(); 
                     delSchedMsg();
-                    ?>    
+                    ?> 
+
             </div>
         </main>
     </div>
-    
 
     <!-- SCHED POPUP -->
     <div class="edit-popup">
         <div class="close-btn">✖</div>
         <div class="form">
         <h2>Edit Schedule</h2>
-        <form action="" method="POST">
+        <form action="">
             <div class="form-element">
             <label for="time-edit">Set New Time:</label>
             <input type="time" id="time-edit" name="time" step="60" value="00:00">
             </div>
             <div class="form-element">
-            <input type="submit" value="Edit" name="edit">
+            <input type="submit" value="Edit">
             </div>
         </form>
         </div>

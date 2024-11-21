@@ -26,7 +26,7 @@ body {
   
 .navbar .logo  img {
     margin-top: 1vh;
-    height: 10vh;
+    height: 6vh;
     width: auto;
 }
   
@@ -91,7 +91,7 @@ body {
 
 .log-list {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: flex-start;
     overflow: auto;
     max-height: 80vh;
@@ -129,6 +129,16 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.log-msg {
+    flex-grow: 2;
+}
+
+.log-stat {
+    align-self: flex-end;
+    color: blueviolet;
+    font-weight: bold;
 }
 
 /* ADD BUTTON */

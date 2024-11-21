@@ -19,11 +19,11 @@ $con->con();
 <body>
   <!-- NAVIGATION -->
   <header class="navbar">
-    <div class="logo"><img src="img/logo.png" alt=""></div>
+    <div class="logo"><a href="#"><img src="img/logo.png" alt=""></a></div>
     <nav>
       <a href="#" title="Home" class="_home"><i class="fa-solid fa-bell"></i></a>
-      <a href="pages/schedule.php" title="Schedules" class="_sched"><i class="fa-regular fa-calendar"></i></a>
-      <a href="#" title="History" class="_out"><i class="fa-regular fa-clock"></i></a>
+      <a href="./pages/schedule.php" title="Schedules" class="_sched"><i class="fa-regular fa-calendar"></i></a>
+      <a href="./pages/history.html" title="History" class="_out"><i class="fa-regular fa-clock"></i></a>
     </nav>
   </header>
 
@@ -61,8 +61,8 @@ $con->con();
             <div class="close-btn">✖</div>
           </div>
           <hr>
-          <p>Your pet has eaten food from the bowl.</p>
-          <p>Bowl Status: 2.3kg</p>
+          <p class="log-msg">Your pet has eaten food from the bowl.</p>
+          <p class="log-stat">Bowl Status: 2.3kg</p>
         </div>
 
         <!-- ITEM -->
@@ -72,8 +72,19 @@ $con->con();
             <div class="close-btn">✖</div>
           </div>
           <hr>
-          <p>Your pet has eaten food from the bowl.</p>
-          <p>Bowl Status: 4.3kg</p>
+          <p class="log-msg">Your pet has eaten food from the bowl.</p>
+          <p class="log-stat">Bowl Status: 2.3kg</p>
+        </div>
+
+        <!-- ITEM -->
+        <div class="log-item">
+          <div class="log-top">
+            <p class="log-date">November 12, 2024 • 8:50 PM</p>
+            <div class="close-btn">✖</div>
+          </div>
+          <hr>
+          <p class="log-msg">Your pet has eaten food from the bowl.</p>
+          <p class="log-stat">Bowl Status: 2.3kg</p>
         </div>
 
       </div>
@@ -89,7 +100,7 @@ $con->con();
   <div class="popup">
     <div class="close-btn">✖</div>
     <div class="form">
-    <?php addSchedMsg(); ?>
+      <?php addSchedMsg(); ?>
       <h2>Add Schedule</h2>
       <form action="./pages/schedule.php" method="POST">
         <div class="form-element">
@@ -106,3 +117,4 @@ $con->con();
   <script src="js/home.js"></script>
 </body>
 </html>
+

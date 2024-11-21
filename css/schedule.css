@@ -27,7 +27,7 @@ body {
   
 .navbar .logo  img {
     margin-top: 1vh;
-    height: 10vh;
+    height: 6vh;
     width: auto;
 }
   
@@ -110,6 +110,7 @@ body {
     transition: 0.5s;
 }
 
+/* FOR REMOVE BUTTON SA SCHED */
 .sched-option button a {
     text-decoration: none;
     color: white;
@@ -119,7 +120,7 @@ body {
 .add {
     position: fixed;
     bottom: 11vh;
-    left: 50%;
+    left: 48%;
 }
 
 .add button {
@@ -143,6 +144,7 @@ body {
     background-color: #007a99;
     transition: 0.5s;
 }
+
 
 /* POPUP FORM */
 .popup, .edit-popup {
