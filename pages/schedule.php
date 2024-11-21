@@ -20,7 +20,7 @@ require_once '../php/init.php';
         <nav>
         <a href="../index.php" title="Home" class="_home"><i class="fa-regular fa-bell"></i></a>
         <a href="#" title="Schedules" class="_sched"><i class="fa-solid fa-calendar-days"></i></a>
-        <a href="history.html" title="History" class="_out"><i class="fa-regular fa-clock"></i></a>
+        <a href="./history.php" title="History" class="_out"><i class="fa-regular fa-clock"></i></a>
         </nav>
     </header>
 
