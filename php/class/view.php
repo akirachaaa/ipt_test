@@ -5,30 +5,27 @@ include 'delete.php';
 class view extends config {
     public function viewSched() {
         $con = $this->con();
-        $sql = "SELECT * FROM `tbl_schedules` ORDER BY `schedule_time`";
+        $sql = "SELECT `schedule_id`, TIME_FORMAT(`schedule_time`, '%h:%i %p') AS `formatted_time` FROM `tbl_schedules` ORDER BY `schedule_time`";
         $data = $con->prepare($sql);
         $data->execute();
         $result = $data->fetchAll(PDO::FETCH_ASSOC);
 
-        foreach($result as $data) {
-            $schedule_id = $data['schedule_id']; 
+        foreach ($result as $data) {
+            $schedule_id = $data['schedule_id'];
+            $formatted_time = $data['formatted_time']; // Use the formatted time alias
 
             echo '<div class="sched-item">
                     <div class="sched-time">
-                        <h1>'.$data['schedule_time'].'</h1>
+                        <h1>' . $formatted_time . '</h1>
                     </div>
                     <div class="sched-option">
                         <button class="show-edit" type="submit" name="submit">Edit</button>
                         <button type="submit" name="delete">
-                            <a href="?delSched='.$schedule_id.'">Remove</a>
+                            <a href="?delSched=' . $schedule_id . '">Remove</a>
                         </button>
                     </div>
                   </div>';
         }
-        
     }
 }
-
-
-
 ?>
