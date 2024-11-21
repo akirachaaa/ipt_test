@@ -23,7 +23,7 @@ $con->con();
     <nav>
       <a href="#" title="Home" class="_home"><i class="fa-solid fa-bell"></i></a>
       <a href="./pages/schedule.php" title="Schedules" class="_sched"><i class="fa-regular fa-calendar"></i></a>
-      <a href="./pages/history.html" title="History" class="_out"><i class="fa-regular fa-clock"></i></a>
+      <a href="./pages/history.php" title="History" class="_out"><i class="fa-regular fa-clock"></i></a>
     </nav>
   </header>
 
@@ -42,51 +42,18 @@ $con->con();
           <img src="https://i.imgur.com/KWUXt4Q.png" referrerpolicy="no-referrer" alt="Schedule Icon">
           <p>Next Schedule: </p><span>6:30 AM</span>
         </div>
-        <div class="info-item">
-          <img src="https://i.imgur.com/nHRDa3O.png" referrerpolicy="no-referrer" alt="Timer Icon">
-          <p>Time Remaining: </p><span>500hrs</span>
-        </div>
       </div>
     </aside>
     
     <!-- LOGS -->
     <main class="logs" id="logs">
-      <h2>Feed Log</h2>
+      <h2>Daily Log</h2>
       <div class="log-list">
         
         <!-- ITEM -->
-        <div class="log-item">
-          <div class="log-top">
-            <p class="log-date">November 01, 2024 • 9:50 PM</p>
-            <div class="close-btn">✖</div>
-          </div>
-          <hr>
-          <p class="log-msg">Your pet has eaten food from the bowl.</p>
-          <p class="log-stat">Bowl Status: 2.3kg</p>
-        </div>
-
-        <!-- ITEM -->
-        <div class="log-item">
-          <div class="log-top">
-            <p class="log-date">November 11, 2024 • 8:50 PM</p>
-            <div class="close-btn">✖</div>
-          </div>
-          <hr>
-          <p class="log-msg">Your pet has eaten food from the bowl.</p>
-          <p class="log-stat">Bowl Status: 2.3kg</p>
-        </div>
-
-        <!-- ITEM -->
-        <div class="log-item">
-          <div class="log-top">
-            <p class="log-date">November 12, 2024 • 8:50 PM</p>
-            <div class="close-btn">✖</div>
-          </div>
-          <hr>
-          <p class="log-msg">Your pet has eaten food from the bowl.</p>
-          <p class="log-stat">Bowl Status: 2.3kg</p>
-        </div>
-
+         <?php
+        $viewL = new viewLog();
+        $viewL->viewLog(); ?>
       </div>
     </main>
   </div>

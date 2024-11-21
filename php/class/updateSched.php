@@ -19,7 +19,6 @@ class updateSched extends config {
         $data->bindParam(':schedule_time', $this->schedule_time);
         $data->bindParam(':schedule_id', $this->schedule_id);
 
-        // Execute the query and return the result
         return $data->execute();
     }
 }

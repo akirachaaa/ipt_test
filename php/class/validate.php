@@ -28,10 +28,8 @@ class validate extends config {
 		$edit = new updateSched($schedule_time, $schedule_id);
 	
 		if ($edit->editSched()) {
-			echo 'meow edited!!!';
 			return true;
 		} else {
-			echo 'no meow edited :((((';
 			return false;
 		}
 	}
