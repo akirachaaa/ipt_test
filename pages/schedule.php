@@ -45,14 +45,15 @@ require_once '../php/init.php';
     <div class="edit-popup">
         <div class="close-btn">✖</div>
         <div class="form">
+        <?php editSchedMsg(); ?>
         <h2>Edit Schedule</h2>
-        <form action="">
+        <form action="" method="POST">
             <div class="form-element">
             <label for="time-edit">Set New Time:</label>
-            <input type="time" id="time-edit" name="time" step="60" value="00:00">
+            <input type="time" id="time-edit" name="edit_time" step="60" value="00:00">
             </div>
             <div class="form-element">
-            <input type="submit" value="Edit">
+            <input type="submit" value="Edit" name="edit_time">
             </div>
         </form>
         </div>

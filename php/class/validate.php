@@ -1,5 +1,6 @@
 <?php
 include 'insertSched.php';
+include 'updateSched.php';
 
 class validate extends config {
     public function viewer($a) {
@@ -22,7 +23,22 @@ class validate extends config {
                 return false;
 			}
 	}
+
+	public function valEditSched($schedule_time, $schedule_id) {
+		$edit = new updateSched($schedule_time, $schedule_id);
+	
+		if ($edit->editSched()) {
+			echo 'meow edited!!!';
+			return true;
+		} else {
+			echo 'no meow edited :((((';
+			return false;
+		}
+	}
+	
 }
+
+
  
 
 ?>  
