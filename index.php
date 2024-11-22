@@ -32,16 +32,18 @@ $con->con();
     <!-- PROFILE -->
     <aside class="profile">
       <img src="https://i.imgur.com/dsV7lvm.png" alt="Pet Profile Picture" referrerpolicy="no-referrer" class="profile-pic">
-      <div class="username">@username</div>
+      <div class="username">@meowi</div>
       <div class="info">
-        <div class="info-item">
+        <?php $view = new viewFoodSched();
+              $view->viewFoodAndNextSchedule(); ?>
+        <!-- <div class="info-item">
           <img src="https://i.imgur.com/R6vqiW0.png" referrerpolicy="no-referrer" alt="Food Icon">
           <p>Food Content: </p><span>2.3kg</span>
         </div>
         <div class="info-item">
           <img src="https://i.imgur.com/KWUXt4Q.png" referrerpolicy="no-referrer" alt="Schedule Icon">
           <p>Next Schedule: </p><span>6:30 AM</span>
-        </div>
+        </div> -->
       </div>
     </aside>
     
