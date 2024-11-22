@@ -16,10 +16,8 @@ class validate extends config {
 	public function valAddSched($schedule_time) {
 		$insert = new insertSched($schedule_time);
 			if($insert->addSched()) {
-				echo 'meow inserted!!!!';
                 return true;
 			} else {
-				echo 'no meow inserted :((';
                 return false;
 			}
 	}
@@ -28,12 +26,13 @@ class validate extends config {
 		$edit = new updateSched($schedule_time, $schedule_id);
 	
 		if ($edit->editSched()) {
+			echo 'meow edited!!!';
 			return true;
 		} else {
+			echo 'no meow edited :((((';
 			return false;
 		}
 	}
-	
 }
 
 

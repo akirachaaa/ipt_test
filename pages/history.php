@@ -15,7 +15,7 @@ require_once '../php/init.php';
 <body>
   <!-- NAVIGATION -->
   <header class="navbar">
-    <div class="logo"><a href="../index.html"><img src="../img/logo.png" alt=""></a></div>
+    <div class="logo"><a href="../index.php"><img src="../img/logo.png" alt=""></a></div>
     <nav>
       <a href="../index.php" title="Home" class="_home"><i class="fa-regular fa-bell"></i></a>
       <a href="./schedule.php" title="Schedules" class="_sched"><i class="fa-regular fa-calendar"></i></a>
