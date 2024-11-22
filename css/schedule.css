@@ -110,6 +110,12 @@ body {
     transition: 0.5s;
 }
 
+/* FOR REMOVE BUTTON SA SCHED */
+.sched-option button a {
+    text-decoration: none;
+    color: white;
+}
+
 /* ADD BUTTON */
 .add {
     position: fixed;
@@ -138,6 +144,7 @@ body {
     background-color: #007a99;
     transition: 0.5s;
 }
+
 
 /* POPUP FORM */
 .popup, .edit-popup {
