@@ -10,11 +10,11 @@ class viewFoodSched extends config {
             $foodRow = $foodStmt->fetch(PDO::FETCH_ASSOC);
             $foodContent = $foodRow ? $foodRow['bowl_weight'] . "g" : "N/A";
 
-            $scheduleQuery = "SELECT notif_date FROM tbl_bowl_status WHERE notif_date > NOW() ORDER BY notif_date ASC LIMIT 1";
+            $scheduleQuery = "SELECT schedule_time FROM tbl_schedules WHERE schedule_time > NOW() ORDER BY schedule_time ASC LIMIT 1";
             $scheduleStmt = $con->prepare($scheduleQuery);
             $scheduleStmt->execute();
             $scheduleRow = $scheduleStmt->fetch(PDO::FETCH_ASSOC);
-            $nextSchedule = $scheduleRow ? $scheduleRow['notif_date'] : "No Upcoming Schedule";
+            $nextSchedule = $scheduleRow ? $scheduleRow['schedule_time'] : "No Upcoming Schedule";
 
             if ($nextSchedule && $nextSchedule !== "No Upcoming Schedule") {
                 $notifDate = new DateTime($nextSchedule);
