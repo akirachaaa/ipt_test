@@ -1,28 +1,28 @@
 <?php
 require_once '../php/init.php';
 
-    include('../php/class/config.php');
+    // include('../php/class/config.php');
     
-    try {
-        $con = new Config();
+    // try {
+    //     $con = new Config();
 
-        $query = "SELECT `schedule_time` FROM `tbl_schedules` ORDER BY `schedule_id` DESC LIMIT 1";
-        $stmt = $con->con()->prepare($query);
-        $stmt->execute();
+    //     $query = "SELECT `schedule_time` FROM `tbl_schedules` ORDER BY `schedule_id` DESC LIMIT 1";
+    //     $stmt = $con->con()->prepare($query);
+    //     $stmt->execute();
 
-        // Fetch the result
-        $currentSchedule = $stmt->fetch(PDO::FETCH_ASSOC);
+    //     // Fetch the result
+    //     $currentSchedule = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        // If a schedule is found, display it; otherwise, display an error message
-        if ($currentSchedule) {
-            $currentScheduleTime = $currentSchedule['schedule_time'];
-        } else {
-            $currentScheduleTime = "No schedule found.";
-        }
-    } catch (PDOException $e) {
-        // Catch any database connection errors
-        echo "<p>Error: " . $e->getMessage() . "</p>";
-    }
+    //     // If a schedule is found, display it; otherwise, display an error message
+    //     if ($currentSchedule) {
+    //         $currentScheduleTime = $currentSchedule['schedule_time'];
+    //     } else {
+    //         $currentScheduleTime = "No schedule found.";
+    //     }
+    // } catch (PDOException $e) {
+    //     // Catch any database connection errors
+    //     echo "<p>Error: " . $e->getMessage() . "</p>";
+    // }
 ?>
 
 
@@ -68,15 +68,13 @@ require_once '../php/init.php';
     <div class="edit-popup">
     <div class="close-btn">✖</div>
     <div class="form">
-        <?php editSchedMsg(); ?>
         <h2>Edit Schedule</h2>
-        <form action="" method="POST">
+        <form action="./schedule.php" method="POST">
             <div class="form-element">
                 <label for="time-edit">Set New Time:</label>
                 <input type="time" id="time-edit" name="edit_time" step="60" value="00:00" required>
             </div>
-            <?php $schedule_id = isset($_GET['editSched']) ? $_GET['editSched'] : ''; ?>
-            <input type="hidden" name="schedule_id" value="<?php echo $schedule_id; ?>">
+            <input type="hidden" name="schedule_id" value="">
 
             <div class="form-element">
                 <input type="submit" value="Edit" name="edit_time">

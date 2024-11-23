@@ -24,15 +24,16 @@ class validate extends config {
 
 	public function valEditSched($schedule_time, $schedule_id) {
 		$edit = new updateSched($schedule_time, $schedule_id);
-	
 		if ($edit->editSched()) {
-			echo 'meow edited!!!';
+			echo 'Schedule successfully edited!';
 			return true;
 		} else {
-			echo 'no meow edited :((((';
+			error_log('Error editing schedule with ID: ' . $schedule_id);
+			echo 'Failed to edit schedule.';
 			return false;
 		}
 	}
+	
 }
 
 

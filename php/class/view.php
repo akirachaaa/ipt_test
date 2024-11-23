@@ -19,9 +19,7 @@ class view extends config {
                         <h1>' . $formatted_time . '</h1>
                     </div>
                     <div class="sched-option">
-                        <button class="show-edit">
-                            <a href="?editSched=' . $schedule_id . '">Edit</a>
-                        </button>
+                        <button class="show-edit" data-id="' . $schedule_id . '">Edit</button>
                         <button type="submit" name="delete">
                             <a href="?delSched=' . $schedule_id . '">Remove</a>
                         </button>
