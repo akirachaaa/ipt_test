@@ -1,29 +1,22 @@
 <?php
 require_once '../php/init.php';
+include('../php/class/config.php');
 
-    // include('../php/class/config.php');
-    
-    // try {
-    //     $con = new Config();
+try {
+    $con = new Config();
+    $query = "SELECT `schedule_time` FROM `tbl_schedules` ORDER BY `schedule_id` DESC LIMIT 1";
+    $stmt = $con->con()->prepare($query);
+    $stmt->execute();
+    $currentSchedule = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    //     $query = "SELECT `schedule_time` FROM `tbl_schedules` ORDER BY `schedule_id` DESC LIMIT 1";
-    //     $stmt = $con->con()->prepare($query);
-    //     $stmt->execute();
+    $currentScheduleTime = $currentSchedule ? $currentSchedule['schedule_time'] : "No schedule found.";
+} catch (PDOException $e) {
+    echo "<p>Error: " . $e->getMessage() . "</p>";
+}
 
-    //     // Fetch the result
-    //     $currentSchedule = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    //     // If a schedule is found, display it; otherwise, display an error message
-    //     if ($currentSchedule) {
-    //         $currentScheduleTime = $currentSchedule['schedule_time'];
-    //     } else {
-    //         $currentScheduleTime = "No schedule found.";
-    //     }
-    // } catch (PDOException $e) {
-    //     // Catch any database connection errors
-    //     echo "<p>Error: " . $e->getMessage() . "</p>";
-    // }
+editSchedMsg();
 ?>
+
 
 
 <!DOCTYPE html>
@@ -64,7 +57,7 @@ require_once '../php/init.php';
         </main>
     </div>
 
-    <!-- SCHED POPUP -->
+    <<!-- SCHED POPUP -->
     <div class="edit-popup">
     <div class="close-btn">✖</div>
     <div class="form">
@@ -75,7 +68,6 @@ require_once '../php/init.php';
                 <input type="time" id="time-edit" name="schedule_time" step="60" value="00:00" required>
             </div>
             <input type="hidden" name="schedule_id" value="<?php echo $schedule_id; ?>">
-
             <div class="form-element">
                 <input type="submit" value="Edit" name="edit_schedule">
             </div>
