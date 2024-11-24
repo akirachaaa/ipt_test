@@ -1,10 +1,11 @@
-document.querySelector("#show-popup").addEventListener("click", function(){
-    document.querySelector(".popup").classList.add("active");
-});
-  
-document.querySelector(".popup .close-btn").addEventListener("click", function(){
-    document.querySelector(".popup").classList.remove("active");
-});
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelector("#show-popup").addEventListener("click", function() {
+        document.querySelector(".popup").classList.add("active");
+    });
+
+    document.querySelector(".popup .close-btn").addEventListener("click", function() {
+        document.querySelector(".popup").classList.remove("active");
+    });
 
 document.addEventListener("DOMContentLoaded", () => {
     // Get all "Edit" buttons
@@ -42,4 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+document.querySelector(".edit-popup .close-btn").addEventListener("click", function() {
+    document.querySelector(".edit-popup").classList.remove("active");
+});
 
