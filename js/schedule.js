@@ -1,49 +1,47 @@
-document.addEventListener("DOMContentLoaded", function() {
-    document.querySelector("#show-popup").addEventListener("click", function() {
-        document.querySelector(".popup").classList.add("active");
+document.addEventListener("DOMContentLoaded", function () {
+    // Add Schedule Popup
+    const addButton = document.querySelector("#show-popup");
+    const addPopup = document.querySelector(".popup");
+    const closeAddPopupBtn = addPopup.querySelector(".close-btn");
+
+    addButton.addEventListener("click", function () {
+        addPopup.classList.add("active");
     });
 
-    document.querySelector(".popup .close-btn").addEventListener("click", function() {
-        document.querySelector(".popup").classList.remove("active");
+    closeAddPopupBtn.addEventListener("click", function () {
+        addPopup.classList.remove("active");
     });
 
-document.addEventListener("DOMContentLoaded", () => {
-    // Get all "Edit" buttons
+    // Edit Schedule Popup
     const editButtons = document.querySelectorAll(".show-edit");
-    const popup = document.querySelector(".edit-popup");
-    const closeBtn = popup.querySelector(".close-btn");
+    const editPopup = document.querySelector(".edit-popup");
+    const closeEditPopupBtn = editPopup.querySelector(".close-btn");
 
-    // Add click event to all edit buttons
     editButtons.forEach(button => {
-        button.addEventListener("click", event => {
+        button.addEventListener("click", function (event) {
             event.preventDefault();
-            const urlParams = new URLSearchParams(button.querySelector("a").href.split("?")[1]);
-            const scheduleId = urlParams.get("editSched");
+            const scheduleId = button.getAttribute("data-id");
+            const scheduleIdInput = document.querySelector('input[name="schedule_id"]');
+            scheduleIdInput.value = scheduleId;
 
-            // Set the schedule_id in the hidden input field
-            popup.querySelector('input[name="schedule_id"]').value = scheduleId;
-
-            // Optionally fetch the current time for this schedule and prefill it in the input (AJAX)
+            // Fetch current schedule time and populate the form
             fetch(`get_schedule_time.php?schedule_id=${scheduleId}`)
                 .then(response => response.json())
                 .then(data => {
+                    console.log("Fetched Data:", data); // Debugging
                     if (data.success) {
-                        popup.querySelector('input[name="edit_time"]').value = data.time;
+                        document.querySelector('input[name="schedule_time"]').value = data.time;
+                    } else {
+                        alert("Failed to fetch schedule time");
                     }
-                });
+                })
+                .catch(error => console.error("Fetch Error:", error));
 
-            // Show the popup
-            popup.classList.add("active");
+            editPopup.classList.add("active");
         });
     });
 
-    // Close the popup
-    closeBtn.addEventListener("click", () => {
-        popup.classList.remove("active");
+    closeEditPopupBtn.addEventListener("click", function () {
+        editPopup.classList.remove("active");
     });
 });
-
-document.querySelector(".edit-popup .close-btn").addEventListener("click", function() {
-    document.querySelector(".edit-popup").classList.remove("active");
-});
-
