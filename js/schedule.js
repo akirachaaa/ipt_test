@@ -7,45 +7,43 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector(".popup").classList.remove("active");
     });
 
-    document.querySelectorAll(".show-edit").forEach(button => {
-        button.addEventListener("click", function() {
-            const scheduleId = this.dataset.id;
-            document.querySelector(".edit-popup").classList.add("active");
+document.addEventListener("DOMContentLoaded", () => {
+    // Get all "Edit" buttons
+    const editButtons = document.querySelectorAll(".show-edit");
+    const popup = document.querySelector(".edit-popup");
+    const closeBtn = popup.querySelector(".close-btn");
 
-            document.querySelector(".edit-popup input[name='schedule_id']").value = scheduleId;
+    // Add click event to all edit buttons
+    editButtons.forEach(button => {
+        button.addEventListener("click", event => {
+            event.preventDefault();
+            const urlParams = new URLSearchParams(button.querySelector("a").href.split("?")[1]);
+            const scheduleId = urlParams.get("editSched");
+
+            // Set the schedule_id in the hidden input field
+            popup.querySelector('input[name="schedule_id"]').value = scheduleId;
+
+            // Optionally fetch the current time for this schedule and prefill it in the input (AJAX)
+            fetch(`get_schedule_time.php?schedule_id=${scheduleId}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        popup.querySelector('input[name="edit_time"]').value = data.time;
+                    }
+                });
+
+            // Show the popup
+            popup.classList.add("active");
         });
     });
 
-    document.querySelector(".edit-popup .close-btn").addEventListener("click", function() {
-        document.querySelector(".edit-popup").classList.remove("active");
+    // Close the popup
+    closeBtn.addEventListener("click", () => {
+        popup.classList.remove("active");
     });
 });
 
-
-
-// document.querySelector(".edit-popup form").addEventListener("submit", function(e) {
-//     e.preventDefault(); 
-
-//     const formData = new FormData(this);
-//     fetch('./updateSched.php', {
-//         method: 'POST',
-//         body: formData
-//     })
-//     .then(response => response.text())
-//     .then(result => {
-//         if (result.includes('meow edited!!!')) {
-//             const scheduleId = formData.get('schedule_id');
-//             const newTime = formData.get('edit_time');
-
-//             document.querySelector(`[data-id='${scheduleId}']`).parentElement.querySelector('.sched-time h1').textContent = newTime;
-            
-//             document.querySelector(".edit-popup").classList.remove("active");
-//         } else {
-//             alert('Failed to update schedule');
-//         }
-//     })
-//     .catch(error => console.error('Error:', error));
-// });
-
-
+document.querySelector(".edit-popup .close-btn").addEventListener("click", function() {
+    document.querySelector(".edit-popup").classList.remove("active");
+});
 

@@ -72,12 +72,12 @@ require_once '../php/init.php';
         <form action="./schedule.php" method="POST">
             <div class="form-element">
                 <label for="time-edit">Set New Time:</label>
-                <input type="time" id="time-edit" name="edit_time" step="60" value="00:00" required>
+                <input type="time" id="time-edit" name="schedule_time" step="60" value="00:00" required>
             </div>
-            <input type="hidden" name="schedule_id" value="">
+            <input type="hidden" name="schedule_id" value="<?php echo $schedule_id; ?>">
 
             <div class="form-element">
-                <input type="submit" value="Edit" name="edit_time">
+                <input type="submit" value="Edit" name="edit_schedule">
             </div>
         </form>
         </div>
