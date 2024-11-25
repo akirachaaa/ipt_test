@@ -6,7 +6,7 @@ class config{
 
     public function con(){
         try{
-          $this->pdo = new PDO('mysql:host=192.168.43.190;dbname=db_petfeeder',$this->user,$this->password); //lagay niyo na lang ip address niyo here
+          $this->pdo = new PDO('mysql:host=172.20.10.2;dbname=db_petfeeder',$this->user,$this->password); //lagay niyo na lang ip address niyo here
         } catch (PDOException $e) {
             die($e->getMessage());
         }

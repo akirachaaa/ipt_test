@@ -34,24 +34,6 @@ require_once '../php/init.php';
             $viewH = new viewHistory();
             $viewH->viewHistory();
         ?>
-
-        <!-- ITEM -->
-        <div class="log-item">
-          <div class="log-top">
-            <p class="log-date">November 11, 2024 • 8:50 PM</p>
-          </div>
-          <p class="log-msg">Your pet has eaten food from the bowl.</p>
-          <p class="log-stat">Bowl Status: 4.3kg</p>
-        </div>
-
-        <!-- ITEM -->
-        <div class="log-item">
-          <div class="log-top">
-            <p class="log-date">November 12, 2024 • 8:50 PM</p>
-          </div>
-          <p class="log-msg">Your pet has eaten food from the bowl.</p>
-          <p class="log-stat">Bowl Status: 4.3kg</p>
-        </div>
         
       </div>
     </main>
