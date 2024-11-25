@@ -58,26 +58,26 @@ require_once '../php/init.php';
   </div>
 
   <!-- ADD BUTTON -->
-  <div class="add">
+  <!-- <div class="add">
     <button id="show-popup">+</button>
-  </div>
+  </div> -->
 
   <!-- POPUP -->
-  <div class="popup">
+  <!-- <div class="popup">
     <div class="close-btn">✖</div>
     <div class="form">
       <h2>Add Schedule</h2>
-      <form action="">
+      <form action="" method="POST">
         <div class="form-element">
           <label for="time">Set Time:</label>
-          <input type="time" id="time" name="time" step="60" value="00:00">
+          <input type="time" id="time" name="add_time" step="60" value="00:00">
         </div>
         <div class="form-element">
-          <input type="submit" value="ADD">
+          <input type="submit" value="ADD" name="submit">
         </div>
       </form>
     </div>
-  </div>
+  </div> -->
 
   <script src="../js/home.js"></script>
 </body>
